@@ -2,7 +2,7 @@ import React from "react";
 
 import FourOhFour from "../FourOhFour";
 
-import Actions from "./Actions";
+import Actions from "../../container/Articles/Actions";
 import Tags from "./Tags";
 import Comments from "./Comments";
 

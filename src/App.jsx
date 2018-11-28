@@ -10,7 +10,7 @@ import FourOhFour from "./components/FourOhFour";
 
 import Articles from "./container/Articles/Articles";
 import Article from "./container/Articles/Article";
-import Add from "./components/Articles/Add";
+import Add from "./container/Articles/Add";
 import Edit from "./container/Articles/Edit";
 import ArticlesbyTag from "./container/Articles/ArticlesByTag";
 
@@ -31,7 +31,7 @@ const App = ({ articles }) => (
             <Route exact path="/articles/add" component={ Add } />
 
             { /* show the Edit form - has to come before */ }
-            <Route exact path="/articles/edit/:id" render={ ({ match }) => (
+            <Route exact path="/articles/:id/edit" render={ ({ match }) => (
                 <Edit id={ +match.params.id } />
             )} />
 

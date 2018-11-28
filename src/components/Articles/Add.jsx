@@ -10,11 +10,10 @@ const fields = [
 ];
 
 // the add article component
-const Add = () => (
+const Add = ({handleSubmit}) => (
     <React.Fragment>
         <h2>Add Article</h2>
-
-        <Form className="panel-body" fields={ fields } button="Add Article" />
+        <Form handleSubmit = {handleSubmit} className="panel-body" fields={ fields } button="Add Article" />
     </React.Fragment>
 );
 
