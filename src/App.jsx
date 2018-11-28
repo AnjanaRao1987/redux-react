@@ -8,9 +8,13 @@ import {
 import Header from "./components/Header";
 import FourOhFour from "./components/FourOhFour";
 
-import Articles from "./components/Articles/Articles";
-import Article from "./components/Articles/Article";
+import Articles from "./container/Articles/Articles";
+import Article from "./container/Articles/Article";
 import Add from "./components/Articles/Add";
+import Edit from "./container/Articles/Edit";
+import ArticlesbyTag from "./container/Articles/ArticlesByTag";
+
+
 
 const App = ({ articles }) => (
     <React.Fragment>
@@ -26,9 +30,19 @@ const App = ({ articles }) => (
             { /* show the add form - has to come before :id so "add" doesn't get treated as an id  */ }
             <Route exact path="/articles/add" component={ Add } />
 
+            { /* show the Edit form - has to come before */ }
+            <Route exact path="/articles/edit/:id" render={ ({ match }) => (
+                <Edit id={ +match.params.id } />
+            )} />
+
+            { /*  */ }
+            <Route exact path="/articles/tag/:tag" render={ ({ match }) => (
+                <ArticlesbyTag tag={ match.params.tag } />
+            )} />
+
             { /* show an individual article */ }
             <Route exact path="/articles/:id" render={ ({ match }) => (
-                <Article article={ articles[+match.params.id] } />
+                <Article id={ +match.params.id } />
             )} />
 
             { /* 404 page */}

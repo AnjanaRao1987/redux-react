@@ -12,6 +12,7 @@ const Articles = ({ articles }) => (
                     <li className="list-group-item" key={ article.id }>
                         { /* link to the article using its id */ }
                         <Link to={ "/articles/" + article.id }>{ article.title }</Link>
+                        <Link to={ "/articles/tag/" + article.tags }> Tags:{ article.tags }</Link>
                     </li>
                 ))}
             </ul>
