@@ -1,7 +1,7 @@
 
 import { connect } from "react-redux";
 import Add from "../../components/Articles/Add";
-import { addArticle } from "../../data/action";
+import { addArticle } from "../../data/actions/state";
 import history from "../../history";
 
 // map dispatch to props gets given store's dispatch method as the first argument

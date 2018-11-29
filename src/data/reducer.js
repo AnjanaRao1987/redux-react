@@ -62,11 +62,19 @@ const editArticle = (state, action) => {
    
  }
 
+ const setTitles = (state, { titles }) => {
+    return {
+        ...state,
+        titles: titles,
+    };
+};
+
 const reducer = (state, action) =>{
     switch(action.type){
     	case "addArticle":return addArticle(state, action);
         case "deleteArticle":return deleteArticle(state, action);
         case "editArticle":return editArticle(state, action);
+        case "setTitles": return setTitles(state, action);
         default: return state;
     }
 }

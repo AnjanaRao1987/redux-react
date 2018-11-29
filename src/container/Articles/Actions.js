@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { deleteArticle } from "../../data/action";
+import { deleteArticle } from "../../data/actions/state";
 import history from "../../history";
 import Actions from "../../components/Articles/Actions";
 

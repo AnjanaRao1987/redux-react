@@ -24,3 +24,11 @@ export const deleteArticle = ( id ) => {
         id: id,
     };
 };
+
+export const setTitles = titles => {
+console.log(titles);
+    return {
+        type: "setTitles",
+        titles: titles,
+    };
+};

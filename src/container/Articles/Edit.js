@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 // import in the Articles component
 import Edit from "../../components/Articles/Edit";
 import history from "../../history";
-import { editArticle } from "../../data/action";
+import { editArticle } from "../../data/actions/state";
 
 
 // mapStateToProps is passed in the current state
