@@ -30,15 +30,35 @@ const addArticle = (state, action) => {
     };
 
  };
+const editArticle = (state, action) => { 
 
- const deleteArticle = (state,action) =>{
-  console.log(action.id);
-  let new_state = {
+      let new_state = {
+        ...state,
                    articles:{
                     ...state.articles,
-                   }};
- delete new_state.articles[action.id]; 
- return new_state;
+                    [action.id]:{
+                            ...state.articles[action.id],
+                            title:action.title,
+                            article:action.article,
+                            tags:action.tags,
+                                    
+                    },
+                   },
+               };
+
+    return new_state;
+
+
+
+ };
+ const deleteArticle = (state,action) =>{
+    let { ...updated } = state.articles;
+    delete updated[action.id];
+
+    return {
+        ...state,
+        articles: updated,
+    };
    
  }
 
@@ -46,6 +66,7 @@ const reducer = (state, action) =>{
     switch(action.type){
     	case "addArticle":return addArticle(state, action);
         case "deleteArticle":return deleteArticle(state, action);
+        case "editArticle":return editArticle(state, action);
         default: return state;
     }
 }

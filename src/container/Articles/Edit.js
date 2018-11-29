@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 // import in the Articles component
 import Edit from "../../components/Articles/Edit";
+import history from "../../history";
+import { editArticle } from "../../data/action";
 
 
 // mapStateToProps is passed in the current state
@@ -23,6 +25,17 @@ const mapStateToProps = (state ,{id}) => {
     };
 };
 
+const mapDispatchToProps = (dispatch,{id}) => {
+    return {
+        // onSubmit is a function which dispatches an action "addArticle"
+        handleSubmit: data => {
+          console.log(data);
+          dispatch(editArticle(id, data));
+          history.push("/");
+        },
+    };
+};
+
 // connect up mapStateToProps with the Articles component
 // Articles' props are now controlled by this file
-export default connect(mapStateToProps)(Edit);
+export default connect(mapStateToProps,mapDispatchToProps)(Edit);

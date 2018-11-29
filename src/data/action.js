@@ -8,6 +8,16 @@ export const addArticle = ({ title, article }) => {
     };
 };
 
+export const editArticle = (id,{title, article ,tags}) => {
+    return {
+        type: "editArticle",
+        title: title,
+        article: article,
+        tags: tags,
+        id:id,
+    };
+};
+
 export const deleteArticle = ( id ) => {
     return {
         type: "deleteArticle",
