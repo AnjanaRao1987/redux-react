@@ -32,3 +32,14 @@ console.log(titles);
         titles: titles,
     };
 };
+
+export const setPost = ({title, article ,tags,id}) =>{
+    console.log("setpost "+id);
+    return {
+        type:"setPost",
+        title: title,
+        article: article,
+        tags: tags,
+        id:id,
+    }
+}

@@ -69,12 +69,33 @@ const editArticle = (state, action) => {
     };
 };
 
+ const setPost = (state, action) => {
+    console.log("setPost" + action.id);
+      let new_state = {
+        ...state,
+        articles:{
+            ...state.articles,
+            [action.id]: {
+                         ...state.articles[action.id],
+                            title:action.title,
+                            article:action.article,
+                            tags:action.tags,
+                            comments:[{email:"dummy@email.com",
+                                comment:"dummy"}]
+            },
+       },
+   };
+
+    return new_state;
+};
+
 const reducer = (state, action) =>{
     switch(action.type){
     	case "addArticle":return addArticle(state, action);
         case "deleteArticle":return deleteArticle(state, action);
         case "editArticle":return editArticle(state, action);
         case "setTitles": return setTitles(state, action);
+        case "setPost": return setPost(state, action);
         default: return state;
     }
 }
